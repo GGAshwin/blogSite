@@ -1,0 +1,22 @@
+*{
+    font-family: sans-serif;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    flex-direction: column;
+}
+a{
+    padding: 10px 15px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+}
+a:hover{
+    background-color: red;
+    color: black;
+    cursor: pointer;
+}
