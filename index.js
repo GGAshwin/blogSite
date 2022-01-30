@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }))
 
-mongoose.connect(process.env.database_url,{ useNewUrlParser: true })
+mongoose.connect("mongodb://localhost/blog",{ useNewUrlParser: true })
 
 const db=mongoose.connection
 db.on('error',(error)=>console.error(error))
