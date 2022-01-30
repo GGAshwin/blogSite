@@ -28,6 +28,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/contact">Contact</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/posts/new">Create a post</a>
+                  </li>
             </ul>
         </div>
     </nav>
@@ -48,6 +51,12 @@
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <form action="/posts/store" method="POST">
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                            <label>Author Name</label>
+                            <input type="text" name="author" placeholder="Author Name" class="form-control">
+                        </div>
+                    </div>
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls">
                             <label>Title</label>

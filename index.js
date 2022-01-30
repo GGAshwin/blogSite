@@ -1,10 +1,12 @@
 require('dotenv').config()
+//sudo lsof -iTCP -sTCP:LISTEN -n -P
 //modules
 const express=require('express')
 const app=express()
 const mongoose=require('mongoose')
 const bodyParser = require('body-parser');
 const Post = require('./database/models/Post');
+const { find } = require('./database/models/Post');
 
 app.use(express.static(__dirname+'/public'));
 app.set('view engine','ejs')
@@ -23,6 +25,10 @@ app.get('/',(req,res)=>{
     res.render('index')
 })
 
+// Post.remove({},(err)=>{
+//     console.log("deleted all")
+// })
+
 app.get('/blog', async (req, res) => {
     const posts = await Post.find({})
     // console.log(posts[0].id)
@@ -31,6 +37,12 @@ app.get('/blog', async (req, res) => {
 
 app.get('/posts/new', (req, res) => {
     res.render('create')
+})
+
+app.get('/post/:id',async(req,res)=>{
+    const post = await Post.findById(req.params.id)
+    console.log(post)
+    res.render('post', {data:post})
 })
 
 app.post('/posts/store', (req, res) => {

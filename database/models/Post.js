@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const create = new mongoose.Schema({
+    author: String,
     title: String,
     description: String,
     content: String
