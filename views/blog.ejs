@@ -56,7 +56,10 @@
           <%= data[i].title %>
         </h5>
         <p class="card-text">
-          <%= data[i].content %>
+          <%= data[i].description %>
+        </p>
+        <p class="card-text">By:
+          <%= data[i].author %>
         </p>
         <a href="/post/<%= data[i]._id %>"  class="btn btn-primary">Read More</a>
       </div>
