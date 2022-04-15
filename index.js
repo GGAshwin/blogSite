@@ -21,6 +21,23 @@ const db=mongoose.connection
 db.on('error',(error)=>console.error(error))
 db.once('open',()=>console.log('connected to database'))
 
+
+
+// const url = `mongodb+srv://ashwin:abc@my-sample-cluster-b3ugy.mongodb.net/<dbname>?retryWrites=true&w=majority`;
+
+// const connectionParams={
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true 
+// }
+// mongoose.connect(url,connectionParams)
+//     .then( () => {
+//         console.log('Connected to database ')
+//     })
+//     .catch( (err) => {
+//         console.error(`Error connecting to the database. \n${err}`);
+//     })
+
+
 app.get('/',(req,res)=>{
     res.render('index')
 })
@@ -50,5 +67,14 @@ app.post('/posts/store', (req, res) => {
         res.redirect('/blog')
     })
 });
+
+app.post('/blog/:id',(req,res)=>{
+    // delete article
+    const id=req.params.id
+    Post.findByIdAndDelete(id,(err)=>{
+        if(err) throw err
+        res.redirect('/blog')
+    })
+})
 
 app.listen('6969')

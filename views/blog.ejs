@@ -50,7 +50,7 @@
   </nav>
   <div class="container px-1 py-5">
     <% for (let i=0; i < data.length; i++) { %>
-      <div class="card m-2" style="width: 18rem">
+      <div class="card m-2" style="width: 100%;border: none;border-bottom: 2px solid;">
       <div class="card-body">
         <h5 class="card-title">
           <%= data[i].title %>
@@ -62,6 +62,9 @@
           <%= data[i].author %>
         </p>
         <a href="/post/<%= data[i]._id %>"  class="btn btn-primary">Read More</a>
+        <!-- <form action="/blog/<%= data[i]._id %> " method="post" class="d-inline">
+          <input type="submit" class="btn btn-danger" value="Delete" name="<%= data[i] %> ">
+        </form> -->
       </div>
   </div>
 <%  } %>
