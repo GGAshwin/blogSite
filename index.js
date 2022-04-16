@@ -15,32 +15,34 @@ app.use(bodyParser.urlencoded({
     extended: true
 }))
 
-mongoose.connect("mongodb://localhost/blog",{ useNewUrlParser: true })
+// mongoose.connect("mongodb://localhost/blog",{ useNewUrlParser: true })
 
-const db=mongoose.connection
-db.on('error',(error)=>console.error(error))
-db.once('open',()=>console.log('connected to database'))
+// const db=mongoose.connection
+// db.on('error',(error)=>console.error(error))
+// db.once('open',()=>console.log('connected to database'))
 
 
 
-// const url = `mongodb+srv://ashwin:abc@my-sample-cluster-b3ugy.mongodb.net/<dbname>?retryWrites=true&w=majority`;
+const url = `mongodb+srv://ashwin:1234@cluster0.cjcyr.mongodb.net/blogDB?retryWrites=true&w=majority`;
 
-// const connectionParams={
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true 
-// }
-// mongoose.connect(url,connectionParams)
-//     .then( () => {
-//         console.log('Connected to database ')
-//     })
-//     .catch( (err) => {
-//         console.error(`Error connecting to the database. \n${err}`);
-//     })
+const connectionParams = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}
+mongoose.connect(url, connectionParams)
+    .then(() => {
+        console.log('Connected to the database ')
+    })
+    .catch((err) => {
+        console.error(`Error connecting to the database. n${err}`);
+    })
 
 
 app.get('/',(req,res)=>{
     res.render('index')
 })
+
+// Post.remove({})
 
 // Post.remove({},(err)=>{
 //     console.log("deleted all")
