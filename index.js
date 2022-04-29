@@ -7,7 +7,7 @@ const mongoose=require('mongoose')
 const bodyParser = require('body-parser');
 const Post = require('./database/models/Post');
 const { find } = require('./database/models/Post');
-
+const port = process.env.PORT || 3000
 app.use(express.static(__dirname+'/public'));
 app.set('view engine','ejs')
 app.use(bodyParser.json())
@@ -79,4 +79,4 @@ app.post('/blog/:id',(req,res)=>{
     })
 })
 
-app.listen('6969')
+app.listen(port)
