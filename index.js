@@ -6,7 +6,6 @@ const app=express()
 const mongoose=require('mongoose')
 const bodyParser = require('body-parser');
 const Post = require('./database/models/Post');
-const { find } = require('./database/models/Post');
 const port = process.env.PORT || 3000
 app.use(express.static(__dirname+'/public'));
 app.set('view engine','ejs')
@@ -49,7 +48,7 @@ app.get('/',(req,res)=>{
 // })
 
 app.get('/blog', async (req, res) => {
-    const posts = await Post.find({})
+    const posts = await Post.find({}).sort({ date: -1 })
     // console.log(posts[0].id)
     res.render('blog', {data:posts})
 });
@@ -65,6 +64,7 @@ app.get('/post/:id',async(req,res)=>{
 })
 
 app.post('/posts/store', (req, res) => {
+    console.log(req.body);
     Post.create(req.body, (error, post) => {
         res.redirect('/blog')
     })
