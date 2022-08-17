@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({
 
 
 
-const url = `mongodb+srv://ashwin:1234@cluster0.cjcyr.mongodb.net/blogDB?retryWrites=true&w=majority`;
+const url = `mongodb+srv://ashwin:henloworld@cluster0.cjcyr.mongodb.net/blogDB?retryWrites=true&w=majority`;
 
 const connectionParams = {
     useNewUrlParser: true,
