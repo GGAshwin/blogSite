@@ -25,8 +25,7 @@ app.use(bodyParser.urlencoded({
 
 const url = `mongodb+srv://ashwin:henloworld@cluster0.cjcyr.mongodb.net/blogDB?retryWrites=true&w=majority`;
 const localUrl="mongodb://localhost:27017/blogDB"
-// =======
-// const url = `mongodb+srv://<user:pass>@cluster0.cjcyr.mongodb.net/blogDB?retryWrites=true&w=majority`;
+// const url = `mongodb+srv:/<username:password>@cluster0.cjcyr.mongodb.net/blogDB?retryWrites=true&w=majority`;
 
 const connectionParams = {
     useNewUrlParser: true,
